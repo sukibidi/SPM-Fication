@@ -21,6 +21,9 @@ function BattleArena({
   onTimeout,
   onDismissFeedback,
   audio,
+  playerName,
+  cadet,
+  guest,
 }) {
   const [lastPoints, setLastPoints] = useState(0);
   const supervisingRef = useRef(false);
@@ -106,7 +109,7 @@ function BattleArena({
 
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start">
           <div className="hidden xl:flex xl:col-span-3 flex-col gap-space-md">
-            <CadetSpecRail streak={streak} />
+            <CadetSpecRail streak={streak} playerName={playerName} cadet={cadet} guest={guest} />
           </div>
 
           <div className="xl:col-span-6 flex flex-col items-center">
@@ -178,13 +181,16 @@ function BattleArena({
   );
 }
 
-function CadetSpecRail({ streak }) {
+function CadetSpecRail({ streak, playerName, cadet, guest }) {
+  const displayName = cadet?.name || guest?.name || playerName || 'Guest';
+  const displaySchool = cadet?.school || guest?.school || 'Guest Session';
+  const initials = cadet?.initials || guest?.initials || (() => { const parts = (displayName || 'G').trim().split(/\s+/); return parts.map(p => p[0]).slice(0, 2).join('').toUpperCase(); })();
   return (
     <>
       <div className="bg-surface-container-lowest border border-primary p-space-md relative">
         <div className="flex items-center justify-between pb-space-xs mb-space-sm border-b border-surface-dim">
-          <span className="mono-label text-primary font-bold">[UNIT_ID: CDT-HARITH]</span>
-          <span className="mono-badge text-primary">KSSM_T5</span>
+          <span className="mono-label text-primary font-bold">[UNIT_ID: CDT-{initials}]</span>
+          <span className="mono-badge text-primary">{cadet ? 'REGISTERED' : 'GUEST'}</span>
         </div>
         <div className="flex items-center gap-space-sm mb-space-md">
           <div className="relative w-12 h-12 border border-primary bg-surface-container-low flex items-center justify-center shrink-0">
@@ -192,8 +198,8 @@ function CadetSpecRail({ streak }) {
             <span className="absolute -bottom-1 -right-1 px-1 bg-primary text-on-primary font-label-badge text-[8px] font-bold">T5</span>
           </div>
           <div className="flex flex-col min-w-0">
-            <div className="font-headline-sm text-sm text-primary uppercase font-bold truncate">HARITH AL-AMIN</div>
-            <div className="font-label-code text-[10px] text-secondary">SBP INTER-VARSITY BRIGADE</div>
+            <div className="font-headline-sm text-sm text-primary uppercase font-bold truncate">{displayName}</div>
+            <div className="font-label-code text-[10px] text-secondary">{displaySchool}</div>
             <div className="font-label-code text-[10px] text-primary font-bold mt-0.5">STREAK: {streak} RUNNING</div>
           </div>
         </div>

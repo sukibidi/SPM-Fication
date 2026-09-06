@@ -186,6 +186,9 @@ export default function App() {
               onTimeout={game.handleTimeout}
               onDismissFeedback={handleDismissFeedback}
               audio={audio}
+              playerName={game.playerName}
+              cadet={cadet}
+              guest={guest}
             />
           )}
 
