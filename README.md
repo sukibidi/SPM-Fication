@@ -1,4 +1,4 @@
-# SPM Streak — Arcade Revision Engine
+# SPM-fication // Arcade Revision Engine
 
 **SPMfication: SPM Streak** is a gamified, high-fidelity revision engine for Malaysian SPM students. It transforms exam preparation into an arcade speedrun experience with 10-second timers, combo multipliers, live leaderboards, and daily streak mechanics.
 
