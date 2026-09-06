@@ -1,0 +1,415 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&amp;family=Outfit:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}.arcade-grid-bg{background-color:#0e1320;background-image:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(0,240,255,0.12),transparent 70%),linear-gradient(to right,rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:100% 100%,48px 48px,48px 48px;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-container":"#1a1f2d","on-surface":"#dee2f5","on-tertiary-container":"#bb0058","on-primary-container":"#006970","on-secondary-fixed-variant":"#5c4300","on-surface-variant":"#b9cacb","tertiary-fixed":"#ffd9e0","secondary-container":"#e3aa00","secondary-fixed":"#ffdf9f","surface-dim":"#0e1320","on-error":"#690005","surface-tint":"#00dbe9","inverse-surface":"#dee2f5","tertiary-container":"#ffccd6","on-tertiary-fixed":"#3f0019","on-error-container":"#ffdad6","background":"#0e1320","surface-container-high":"#252a38","primary-container":"#00f0ff","tertiary":"#fff3f4","surface-bright":"#343948","on-tertiary":"#66002c","inverse-on-surface":"#2b303e","tertiary-fixed-dim":"#ffb1c3","secondary":"#ffc640","secondary-fixed-dim":"#f9bd22","surface-container-lowest":"#090e1b","surface":"#0e1320","on-primary-fixed-variant":"#004f54","surface-container-highest":"#303443","error-container":"#93000a","primary-fixed-dim":"#00dbe9","on-secondary-container":"#5a4100","on-primary-fixed":"#002022","primary-fixed":"#7df4ff","outline":"#849495","inverse-primary":"#006970","on-primary":"#00363a","on-secondary":"#402d00","surface-variant":"#303443","error":"#ffb4ab","on-tertiary-fixed-variant":"#8f0041","surface-container-low":"#161b29","primary":"#dbfcff","on-secondary-fixed":"#261a00","on-background":"#dee2f5","outline-variant":"#3b494b"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","space-2xl":"3rem","space-sm":"0.75rem","space-2xs":"0.25rem","gutter-mobile":"1rem","margin-desktop":"2.5rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-mobile":"1rem","space-3xl":"4rem","space-xl":"2rem","space-xs":"0.5rem"},"fontFamily":{"body-lg":["Outfit"],"label-numeric":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"headline-md":["Space Grotesk"],"display-arcade-mobile":["Space Grotesk"],"display-arcade":["Space Grotesk"],"label-code":["JetBrains Mono"],"body-sm":["Outfit"],"label-badge":["JetBrains Mono"],"headline-lg-mobile":["Space Grotesk"],"headline-sm":["Space Grotesk"],"body-md":["Outfit"]},"fontSize":{"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-numeric":["15px",{"lineHeight":"18px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-arcade-mobile":["40px",{"lineHeight":"44px","letterSpacing":"-0.03em","fontWeight":"700"}],"display-arcade":["56px",{"lineHeight":"60px","letterSpacing":"-0.04em","fontWeight":"700"}],"label-code":["12px",{"lineHeight":"16px","fontWeight":"500"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-badge":["11px",{"lineHeight":"12px","letterSpacing":"0.08em","fontWeight":"800"}],"headline-lg-mobile":["26px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface arcade-grid-bg min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]"><div class="h-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="CAMPUR Streak Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WXPz2qDcS_bdIgxG38AGhUbbR78yhSdUNeBbVBl6rC91Ols6s3ZLb6jvJBvqo0OR90eTM0erCMdwHFz5WNHfxCZSwzES6aXuIYVSR5ggZOUe1UCwM33cvwtMHzmnvGv2-RIy3vtnzqGMBs3y5CUYgEudmGhKlANExsgvIe6PoMxiYqme8lfW6A66c9O9JBjPRXyfE4TFe8-IEoQPgXlOMKj7jq_SKyvHA5VS6jhUcNm5i40rH_3u_lSYI"><span class="font-headline-sm text-headline-sm text-primary tracking-tight uppercase select-none drop-shadow-[0_0_12px_rgba(0,240,255,0.4)]">SPMFICATION: SPM Streak</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm text-headline-sm rounded-lg shadow-[0_0_16px_rgba(0,240,255,0.35)]"><a aria-current="page" class="px-space-md py-space-xs transition-all bg-primary-container text-on-primary-container font-headline-sm text-headline-sm rounded-lg shadow-[0_0_16px_rgba(0,240,255,0.35)]" data-path="arcade-run" href="#">Arcade Run</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-body-md text-body-md hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="subject-vault" href="#">Subject Vault</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-body-md text-body-md hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="leaderboard" href="#">Leaderboard</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-body-md text-body-md hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="profile" href="#">Profile</a></nav></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-full bg-surface-container/90 shadow-[0_0_15px_rgba(0,219,233,0.15)]"><span class="material-symbols-outlined text-primary-fixed-dim text-[20px] animate-pulse">local_fire_department</span><span class="font-label-numeric text-label-numeric text-primary">0 DAYS</span></div><div class="hidden md:flex items-center gap-space-2xs px-space-sm py-space-xs rounded-full bg-surface-container-high/80"><span class="material-symbols-outlined text-secondary text-[16px]">military_tech</span><span class="font-label-badge text-label-badge text-secondary uppercase">Rank: Novice Cadet</span></div><button aria-label="Toggle Arcade Audio" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">volume_up</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(0,240,255,0.4)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 arcade-grid-bg"><div class="flex flex-col w-full relative min-w-0 pb-space-3xl">
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+<div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-primary-container/10 rounded-full blur-[140px]"></div>
+<div class="absolute top-1/3 -left-20 w-[420px] h-[420px] bg-secondary/10 rounded-full blur-[160px]"></div>
+<div class="absolute bottom-10 right-10 w-[500px] h-[500px] bg-primary-fixed-dim/5 rounded-full blur-[180px]"></div>
+</div>
+<div class="max-w-7xl mx-auto w-full px-margin-mobile lg:px-margin-desktop relative z-10">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-desktop items-start">
+<div class="xl:col-span-8 flex flex-col items-center">
+<div class="w-full max-w-[720px] flex flex-col gap-space-lg">
+<div class="w-full bg-surface-container/80 backdrop-blur-xl rounded-xl p-space-md shadow-xl flex flex-col gap-space-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-75"></div>
+<div class="flex items-center justify-between gap-space-sm flex-wrap">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant">Stage 03 / 05</span>
+<span class="text-outline-variant font-label-code text-label-code">•</span>
+<span class="font-label-numeric text-label-numeric text-primary">Q3 / 10</span>
+</div>
+<div class="flex items-center gap-space-2xs">
+<div class="px-space-xs py-1 rounded bg-surface-container-high flex items-center gap-1 shadow-sm">
+<span class="font-label-badge text-label-badge text-primary-container">BM</span>
+<span class="material-symbols-outlined text-primary-container text-[14px]">check</span>
+</div>
+<div class="px-space-xs py-1 rounded bg-surface-container-high flex items-center gap-1 shadow-sm">
+<span class="font-label-badge text-label-badge text-primary-container">SEJ</span>
+<span class="material-symbols-outlined text-primary-container text-[14px]">check</span>
+</div>
+<div class="px-space-xs py-1 rounded bg-primary-container text-on-primary-container flex items-center gap-1 shadow-[0_0_12px_rgba(0,240,255,0.45)]">
+<span class="font-label-badge text-label-badge">MAT</span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary-container animate-ping"></span>
+</div>
+<div class="px-space-xs py-1 rounded bg-surface-container-low opacity-60 flex items-center gap-1">
+<span class="font-label-badge text-label-badge text-outline">GEO</span>
+<span class="material-symbols-outlined text-outline text-[12px]">lock</span>
+</div>
+<div class="px-space-xs py-1 rounded bg-surface-container-low opacity-60 flex items-center gap-1">
+<span class="font-label-badge text-label-badge text-outline">SN</span>
+<span class="material-symbols-outlined text-outline text-[12px]">lock</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center gap-1 px-space-sm py-1 rounded-full bg-secondary/15 text-secondary shadow-[0_0_15px_rgba(255,198,64,0.3)]">
+<span class="material-symbols-outlined text-[16px] text-secondary">bolt</span>
+<span class="font-label-badge text-label-badge uppercase font-bold text-secondary">3X STREAK</span>
+<span class="font-label-code text-label-code text-secondary-fixed ml-1">+450 PTS</span>
+</div>
+<button aria-label="Pause Run" class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-primary transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">pause</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px] animate-pulse">timer</span>
+<span class="font-label-code text-label-code tracking-wider uppercase font-bold">Countdown Phase</span>
+</div>
+<span class="font-label-numeric text-label-numeric tracking-wider text-error" id="timerReadout">⚡ 0.0s REMAINING</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-lowest rounded-full overflow-hidden p-0.5 shadow-inner">
+<div class="h-full rounded-full bg-gradient-to-r from-primary-container via-secondary to-error-container w-[42%] transition-all duration-300 shadow-[0_0_12px_rgba(0,240,255,0.7)]" id="timerBar" style="width: 0%;"></div>
+</div>
+</div>
+</div>
+<div class="w-full bg-surface-container/90 backdrop-blur-2xl rounded-xl p-space-xl shadow-2xl relative flex flex-col gap-space-lg">
+<div class="absolute -top-10 right-10 w-28 h-28 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between flex-wrap gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="px-space-sm py-1 rounded bg-surface-container-high text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">square_foot</span>
+<span class="font-label-code text-label-code uppercase tracking-wider">MATEMATIK SPM • T4-T5</span>
+</div>
+<div class="px-space-sm py-1 rounded bg-secondary-container/20 text-secondary-fixed flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+<span class="font-label-badge text-label-badge uppercase">RAPID FIRE [10s]</span>
+</div>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant">TOPIC: ARITHMETIC FRACTIONS</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+                Mana lebih besar nilai pecahan berikut?
+              </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Tentukan nilai pecahan yang mempunyai kuantiti terbesar tanpa menggunakan kalkulator sains.
+              </p>
+</div>
+<div class="w-full rounded-xl bg-surface-container-lowest/80 p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md shadow-inner relative overflow-hidden">
+<div class="flex items-center gap-space-xl justify-center w-full md:w-auto">
+<div class="flex flex-col items-center justify-center p-space-md rounded-lg bg-surface-container-high min-w-[120px] shadow-md">
+<span class="font-display-arcade text-display-arcade text-primary leading-none">3</span>
+<div class="w-12 h-1 bg-primary-container rounded-full my-1"></div>
+<span class="font-display-arcade text-display-arcade text-primary leading-none">5</span>
+<span class="font-label-code text-label-code text-on-surface-variant mt-2">[ Pilihan I ]</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-headline-lg text-headline-lg text-secondary uppercase font-bold tracking-widest">VS</span>
+<span class="font-label-badge text-label-badge text-outline">PERBANDINGAN</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-md rounded-lg bg-surface-container-high min-w-[120px] shadow-md">
+<span class="font-display-arcade text-display-arcade text-secondary leading-none">2</span>
+<div class="w-12 h-1 bg-secondary rounded-full my-1"></div>
+<span class="font-display-arcade text-display-arcade text-secondary leading-none">3</span>
+<span class="font-label-code text-label-code text-on-surface-variant mt-2">[ Pilihan II ]</span>
+</div>
+</div>
+<div class="w-full md:max-w-[260px] flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-1.5 text-primary-container">
+<span class="material-symbols-outlined text-[16px]">lightbulb</span>
+<span class="font-label-badge text-label-badge uppercase">Arcade Shortcut HUD</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Pintas Pantas: Samakan penyebut kepada <span class="text-primary font-label-code">15</span> → <span class="text-primary font-bold">9/15</span> lawan <span class="text-secondary font-bold">10/15</span>.
+                </p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs" id="quizOptionGrid">
+<button class="group relative text-left p-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright transition-all duration-150 flex items-center justify-between shadow-lg cursor-pointer transform active:translate-y-0.5 focus:outline-none ring-2 ring-primary-container shadow-[0_0_24px_rgba(0,240,255,0.25)]" data-key="A" type="button">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container font-label-numeric text-label-numeric flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.6)]">
+                    A
+                  </span>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-primary font-bold">2 / 3</span>
+<span class="font-label-code text-label-code text-primary-container">Pilihan II (Nilai = 0.666...)</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shrink-0 shadow-[0_0_12px_rgba(0,240,255,0.5)]"><span class="material-symbols-outlined text-[18px]">check</span></div>
+</button>
+<button class="group relative text-left p-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright transition-all duration-150 flex items-center justify-between shadow-md cursor-pointer transform active:translate-y-0.5 focus:outline-none" data-key="B" type="button">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant group-hover:text-primary group-hover:bg-surface-container-highest font-label-numeric text-label-numeric flex items-center justify-center shrink-0">
+                    B
+                  </span>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface group-hover:text-primary">3 / 5</span>
+<span class="font-label-code text-label-code text-on-surface-variant">Pilihan I (Nilai = 0.600)</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0 opacity-40">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+</div>
+</button>
+<button class="group relative text-left p-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright transition-all duration-150 flex items-center justify-between shadow-md cursor-pointer transform active:translate-y-0.5 focus:outline-none" data-key="C" type="button">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant group-hover:text-primary group-hover:bg-surface-container-highest font-label-numeric text-label-numeric flex items-center justify-center shrink-0">
+                    C
+                  </span>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface group-hover:text-primary">Kedua-duanya sama</span>
+<span class="font-label-code text-label-code text-on-surface-variant">Nilai pecahan adalah sepadan</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(0,240,255,0.5)] bg-surface-container-lowest opacity-40"><span class="w-2 h-2 rounded-full bg-outline"></span></div>
+</button>
+<button class="group relative text-left p-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright transition-all duration-150 flex items-center justify-between shadow-md cursor-pointer transform active:translate-y-0.5 focus:outline-none" data-key="D" type="button">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant group-hover:text-primary group-hover:bg-surface-container-highest font-label-numeric text-label-numeric flex items-center justify-center shrink-0">
+                    D
+                  </span>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface group-hover:text-primary truncate">Tidak dapat ditentukan</span>
+<span class="font-label-code text-label-code text-on-surface-variant truncate">Maklumat soalan tidak lengkap</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0 opacity-40">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+</div>
+</button>
+</div>
+</div>
+<div class="w-full bg-surface-container/85 backdrop-blur-xl rounded-xl p-space-md shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Current Score</span>
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">2,450 <span class="font-label-code text-label-code text-secondary">PTS</span></span>
+</div>
+<div class="hidden sm:flex flex-col pl-space-md border-l border-surface-container-highest">
+<span class="font-label-badge text-label-badge text-secondary uppercase">Combo Charge</span>
+<div class="flex items-center gap-1 mt-1">
+<span class="w-5 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(255,198,64,0.6)]"></span>
+<span class="w-5 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(255,198,64,0.6)]"></span>
+<span class="w-5 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(255,198,64,0.6)]"></span>
+<span class="w-5 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="w-5 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-label-code text-label-code text-secondary font-bold ml-1.5">3/5 ⚡</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="group px-space-sm py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface flex items-center gap-1.5 shadow-sm transition-all" type="button">
+<span class="font-label-badge text-label-badge px-1 rounded bg-surface-container-lowest text-primary-container">[1]</span>
+<span class="material-symbols-outlined text-[16px] text-primary">shield</span>
+<span class="font-body-sm text-body-sm">50/50 Shield</span>
+<span class="font-label-badge text-label-badge text-secondary">(1 left)</span>
+</button>
+<button class="group px-space-sm py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface flex items-center gap-1.5 shadow-sm transition-all" type="button">
+<span class="font-label-badge text-label-badge px-1 rounded bg-surface-container-lowest text-primary-container">[2]</span>
+<span class="material-symbols-outlined text-[16px] text-primary-fixed-dim">ac_unit</span>
+<span class="font-body-sm text-body-sm">Freeze Time</span>
+<span class="font-label-badge text-label-badge text-secondary">(1 left)</span>
+</button>
+<button class="group px-space-sm py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center gap-1.5 transition-all" type="button">
+<span class="font-label-badge text-label-badge px-1 rounded bg-surface-container-lowest text-outline">[SPACE]</span>
+<span class="font-body-sm text-body-sm">Skip</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-surface-container-highest text-on-surface-variant flex-wrap gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">keyboard</span>
+<span class="font-label-code text-label-code">Press [A] [B] [C] [D] to answer • [1-2] for Power-ups</span>
+</div>
+<span class="font-label-code text-label-code text-primary-container">MALAYSIA SPM SPRINT PROTOCOL ACTIVE</span>
+</div>
+</div>
+</div>
+</div>
+<div class="xl:col-span-4 w-full flex flex-col gap-space-md">
+<div class="w-full bg-surface-container/85 backdrop-blur-2xl rounded-xl p-space-md shadow-2xl relative flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container animate-ping"></div>
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight">Live Room Cadets</span>
+</div>
+<span class="font-label-code text-label-code px-space-xs py-0.5 rounded bg-surface-container-high text-secondary">
+              ROOM #MY-SPM-902
+            </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="p-space-sm rounded-lg bg-surface-container-high/90 flex items-center justify-between gap-space-sm shadow-sm transition-all hover:bg-surface-bright">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-7 h-7 rounded-full bg-secondary flex items-center justify-center font-label-numeric text-label-numeric text-on-secondary shrink-0 shadow-[0_0_8px_rgba(255,198,64,0.4)]">
+                  1
+                </div>
+<img class="w-9 h-9 rounded-full object-cover shrink-0" data-alt="Cyberpunk stylized arcade avatar portrait of a studious male student with futuristic neon holographic glasses and a high collar navy jacket." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBncHRvW_p74bhnfs8I3-VdZH0xQ1ebCjTqYkUSdP50dtg6Z-z0EpfeUHXngnPCI8XyWjXDoBPj4s6q4VfbxjpRGkJzHzdxAIlg0Y8SJl0JeZmWzfPPr_tIcVVQv-4CKZyN-DdCx5j2vl4NkmFUkdos2MijK6EZUUU1JsoI7SorqMmRfl2ZKHt194ILP1uk1CwzVYEpp_VWuG8mEejvdFNgRMnJFHBVfszvAyqw2hB9C0OyJFxCbKhrtg">
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Danial Rayyan</span>
+<span class="font-label-code text-label-code text-on-surface-variant">Kolej Yayasan Saad</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-numeric text-label-numeric text-primary">4,950 pts</span>
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">local_fire_department</span> 14 STREAK
+                </span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-high/70 flex items-center justify-between gap-space-sm shadow-sm transition-all hover:bg-surface-bright">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest text-on-surface-variant flex items-center justify-center font-label-numeric text-label-numeric shrink-0">
+                  2
+                </div>
+<img class="w-9 h-9 rounded-full object-cover shrink-0" data-alt="Anime neon portrait of a Malaysian female student wearing modern modest hijab with subtle glowing cyan visor earpiece." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBUegU3vCZSm0EjIZF7owJeOgXOi8187M1QBSI323RcBCNPj8vvFoPgNw4WYh3CIHC2hIH6l6STYKPNOxNqM9LdU4A_ktuHksDN7Ad_xOT6JflbapAqmJeeQcHIkguB3ZXalsGVfHIvFZ7gtbl9aLUFjFRsMXlmoeDnrJxGl_iDNRel--j60gtq5wvihi4GRIWN1RaLTrENwrDHFMuNw7X3_ED6XaY0ZQIL46CxG10hR67UAiR4xEK_w">
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Nur Maisarah</span>
+<span class="font-label-code text-label-code text-on-surface-variant">SMK Seri Bintang</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-numeric text-label-numeric text-primary">4,720 pts</span>
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">local_fire_department</span> 9 STREAK
+                </span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-high/70 flex items-center justify-between gap-space-sm shadow-sm transition-all hover:bg-surface-bright">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest text-on-surface-variant flex items-center justify-center font-label-numeric text-label-numeric shrink-0">
+                  3
+                </div>
+<img class="w-9 h-9 rounded-full object-cover shrink-0" data-alt="Dynamic futuristic avatar of a teenage student with headphones emitting electric amber light in a digital arcade chamber." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBarcPCg465NYH5ldLXAAGZyvsZxIoslU2KiCUO53vxXY5r-yw_U3Hz4EqmgHDjyTzM3YZT4KiJuNn7IJFz7SNYPjxUFp-zYBs-u2p8ATAGjj89tVfcOjnZom5b3BO54YeP4nX7DnIr9UczmYJFeUSFNEuLvKnpDbe1kru0s_7SY4_eQ2dSBi-2UJFTubsFqasUgx5plvRxEOlhokjLOCldpAVLSZCqreOPUF_d7KxsqDFvPWrTDyJmbg">
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Justin Tan</span>
+<span class="font-label-code text-label-code text-on-surface-variant">SMJK Chong Hwa</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-numeric text-label-numeric text-primary">4,580 pts</span>
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">local_fire_department</span> 7 STREAK
+                </span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-high/50 flex items-center justify-between gap-space-sm shadow-sm transition-all hover:bg-surface-bright">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest text-outline flex items-center justify-center font-label-numeric text-label-numeric shrink-0">
+                  4
+                </div>
+<img class="w-9 h-9 rounded-full object-cover shrink-0" data-alt="High tech digital artwork avatar of an Asian female student smiling confidently with faint glowing holographic neural tags." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzxBc4hDaR17JLOb9Uo4vT4jhw1_4ANe62ILyWz6MiCIwsuFRsohln8Z2WPs91-v63PVAkOPREkqFppVCJpzlA4LYquZiU0AZqLAQcTtdwB4nwN1nfS7pb34svPuRv3usvpguxBGeFdwSWEOkC3HwqY87B6UZsYvjeCnW_N0ivr-fNwu1Acev_83orkPeTp9nIeKUgGRRcamvF4RpNW52BJlqQC4xB7CJ9rCGksJgEITUuuHbQD9-_mg">
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Siti Aminah</span>
+<span class="font-label-code text-label-code text-on-surface-variant">SBP Integrasi</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-numeric text-label-numeric text-primary">4,120 pts</span>
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">local_fire_department</span> 5 STREAK
+                </span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-primary-container/15 flex items-center justify-between gap-space-sm shadow-md ring-1 ring-primary-container/40 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container"></div>
+<div class="flex items-center gap-space-sm min-w-0 pl-1">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-numeric text-label-numeric font-bold shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.4)]">
+                  6
+                </div>
+<div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold shrink-0">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold truncate">YOU</span>
+<span class="font-label-badge text-label-badge px-1 rounded bg-secondary text-on-secondary">RUSH</span>
+</div>
+<span class="font-label-code text-label-code text-primary-fixed-dim">Cadet Rank #06</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-numeric text-label-numeric text-primary-container font-bold">2,450 pts</span>
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-0.5 font-bold">
+<span class="material-symbols-outlined text-[12px]">local_fire_department</span> 3x STREAK
+                </span>
+</div>
+</div>
+</div>
+<div class="w-full bg-surface-container-lowest/80 p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">military_tech</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pintas ranking seterusnya:</span>
+</div>
+<span class="font-label-numeric text-label-numeric text-secondary">+1,670 pts</span>
+</div>
+</div>
+<div class="w-full bg-surface-container/70 backdrop-blur-xl rounded-xl p-space-md shadow-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase text-on-surface-variant">Live Match telemetry</span>
+<span class="font-label-code text-label-code text-primary-container">PING: 18ms</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<div class="p-space-xs rounded bg-surface-container-high flex flex-col">
+<span class="font-label-badge text-label-badge text-outline uppercase">Accuracy</span>
+<span class="font-headline-sm text-headline-sm text-primary">100% (2/2)</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-high flex flex-col">
+<span class="font-label-badge text-label-badge text-outline uppercase">Avg. Speed</span>
+<span class="font-headline-sm text-headline-sm text-secondary">3.4s</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    let timeLeft = 4.2;
+    const totalTime = 10.0;
+    const timerBar = document.getElementById('timerBar');
+    const timerReadout = document.getElementById('timerReadout');
+
+    const interval = setInterval(() => {
+      timeLeft -= 0.1;
+      if (timeLeft <= 0) {
+        timeLeft = 0;
+        clearInterval(interval);
+      }
+      if (timerBar && timerReadout) {
+        const pct = Math.max(0, (timeLeft / totalTime) * 100);
+        timerBar.style.width = pct + '%';
+        timerReadout.textContent = '⚡ ' + timeLeft.toFixed(1) + 's REMAINING';
+        if (timeLeft < 3.0) {
+          timerReadout.classList.add('text-error');
+          timerReadout.classList.remove('text-primary-container');
+        }
+      }
+    }, 100);
+
+    const optionButtons = document.querySelectorAll('#quizOptionGrid button');
+    optionButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        optionButtons.forEach(b => {
+          b.classList.remove('ring-2', 'ring-primary-container', 'shadow-[0_0_24px_rgba(0,240,255,0.25)]');
+          const badge = b.querySelector('.rounded-full.bg-primary-container');
+          if (badge) {
+            badge.classList.remove('bg-primary-container', 'text-on-primary-container');
+            badge.classList.add('bg-surface-container-lowest', 'opacity-40');
+            badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-outline"></span>';
+          }
+        });
+        btn.classList.add('ring-2', 'ring-primary-container', 'shadow-[0_0_24px_rgba(0,240,255,0.25)]');
+        const indicator = btn.querySelector('.shrink-0:last-child');
+        if (indicator) {
+          indicator.className = 'w-7 h-7 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shrink-0 shadow-[0_0_12px_rgba(0,240,255,0.5)]';
+          indicator.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span>';
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const key = e.key.toUpperCase();
+      if (['A', 'B', 'C', 'D'].includes(key)) {
+        const targetBtn = document.querySelector(`#quizOptionGrid button[data-key="${key}"]`);
+        if (targetBtn) {
+          targetBtn.click();
+        }
+      }
+    });
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest/90 mt-space-3xl py-space-xl"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary">CAMPUR</span><span class="font-body-sm text-body-sm text-on-surface-variant">SPM Arcade Battleground © 2025</span></div><div class="flex items-center gap-space-lg"><span class="font-label-code text-label-code text-on-surface-variant">SYSTEM: PROTOCOL ACTIVE</span><span class="font-label-code text-label-code text-secondary-fixed-dim">EXP BOOST: 1.0X</span></div></div></footer>
+
+</body></html>

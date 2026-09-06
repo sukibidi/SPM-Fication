@@ -1,0 +1,453 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&amp;family=Outfit:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}.arcade-grid-bg{background-color:#0e1320;background-image:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(0,240,255,0.12),transparent 70%),linear-gradient(to right,rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:100% 100%,48px 48px,48px 48px;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-container":"#1a1f2d","on-surface":"#dee2f5","on-tertiary-container":"#bb0058","on-primary-container":"#006970","on-secondary-fixed-variant":"#5c4300","on-surface-variant":"#b9cacb","tertiary-fixed":"#ffd9e0","secondary-container":"#e3aa00","secondary-fixed":"#ffdf9f","surface-dim":"#0e1320","on-error":"#690005","surface-tint":"#00dbe9","inverse-surface":"#dee2f5","tertiary-container":"#ffccd6","on-tertiary-fixed":"#3f0019","on-error-container":"#ffdad6","background":"#0e1320","surface-container-high":"#252a38","primary-container":"#00f0ff","tertiary":"#fff3f4","surface-bright":"#343948","on-tertiary":"#66002c","inverse-on-surface":"#2b303e","tertiary-fixed-dim":"#ffb1c3","secondary":"#ffc640","secondary-fixed-dim":"#f9bd22","surface-container-lowest":"#090e1b","surface":"#0e1320","on-primary-fixed-variant":"#004f54","surface-container-highest":"#303443","error-container":"#93000a","primary-fixed-dim":"#00dbe9","on-secondary-container":"#5a4100","on-primary-fixed":"#002022","primary-fixed":"#7df4ff","outline":"#849495","inverse-primary":"#006970","on-primary":"#00363a","on-secondary":"#402d00","surface-variant":"#303443","error":"#ffb4ab","on-tertiary-fixed-variant":"#8f0041","surface-container-low":"#161b29","primary":"#dbfcff","on-secondary-fixed":"#261a00","on-background":"#dee2f5","outline-variant":"#3b494b"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","space-2xl":"3rem","space-sm":"0.75rem","space-2xs":"0.25rem","gutter-mobile":"1rem","margin-desktop":"2.5rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-mobile":"1rem","space-3xl":"4rem","space-xl":"2rem","space-xs":"0.5rem"},"fontFamily":{"body-lg":["Outfit"],"label-numeric":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"headline-md":["Space Grotesk"],"display-arcade-mobile":["Space Grotesk"],"display-arcade":["Space Grotesk"],"label-code":["JetBrains Mono"],"body-sm":["Outfit"],"label-badge":["JetBrains Mono"],"headline-lg-mobile":["Space Grotesk"],"headline-sm":["Space Grotesk"],"body-md":["Outfit"]},"fontSize":{"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-numeric":["15px",{"lineHeight":"18px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-arcade-mobile":["40px",{"lineHeight":"44px","letterSpacing":"-0.03em","fontWeight":"700"}],"display-arcade":["56px",{"lineHeight":"60px","letterSpacing":"-0.04em","fontWeight":"700"}],"label-code":["12px",{"lineHeight":"16px","fontWeight":"500"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-badge":["11px",{"lineHeight":"12px","letterSpacing":"0.08em","fontWeight":"800"}],"headline-lg-mobile":["26px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface arcade-grid-bg min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]"><div class="h-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="CAMPUR Streak Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WXPz2qDcS_bdIgxG38AGhUbbR78yhSdUNeBbVBl6rC91Ols6s3ZLb6jvJBvqo0OR90eTM0erCMdwHFz5WNHfxCZSwzES6aXuIYVSR5ggZOUe1UCwM33cvwtMHzmnvGv2-RIy3vtnzqGMBs3y5CUYgEudmGhKlANExsgvIe6PoMxiYqme8lfW6A66c9O9JBjPRXyfE4TFe8-IEoQPgXlOMKj7jq_SKyvHA5VS6jhUcNm5i40rH_3u_lSYI"><span class="font-headline-sm text-headline-sm text-primary tracking-tight uppercase select-none drop-shadow-[0_0_12px_rgba(0,240,255,0.4)]">SPMFICATION : SPM Streak</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm text-headline-sm rounded-lg shadow-[0_0_16px_rgba(0,240,255,0.35)]"><a aria-current="page" class="px-space-md py-space-xs transition-all bg-primary-container text-on-primary-container font-headline-sm text-headline-sm rounded-lg shadow-[0_0_16px_rgba(0,240,255,0.35)]" data-path="arcade-run" href="#">Arcade Run</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-body-md text-body-md hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="subject-vault" href="#">Subject Vault</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-body-md text-body-md hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="leaderboard" href="#">Leaderboard</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-body-md text-body-md hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="profile" href="#">Profile</a></nav></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-full bg-surface-container/90 shadow-[0_0_15px_rgba(0,219,233,0.15)]"><span class="material-symbols-outlined text-primary-fixed-dim text-[20px] animate-pulse">local_fire_department</span><span class="font-label-numeric text-label-numeric text-primary">0 DAYS</span></div><div class="hidden md:flex items-center gap-space-2xs px-space-sm py-space-xs rounded-full bg-surface-container-high/80"><span class="material-symbols-outlined text-secondary text-[16px]">military_tech</span><span class="font-label-badge text-label-badge text-secondary uppercase">Rank: Novice Cadet</span></div><button aria-label="Toggle Arcade Audio" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">volume_up</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(0,240,255,0.4)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 arcade-grid-bg"><div class="flex flex-col w-full">
+<!-- Interactive Ambient Glow Layers -->
+<div class="relative w-full overflow-hidden px-margin-mobile lg:px-margin-desktop py-space-xl max-w-7xl mx-auto">
+<!-- Cyber Orb Lights -->
+<div class="absolute -top-32 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse"></div>
+<div class="absolute top-48 right-10 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute bottom-10 left-10 w-72 h-72 bg-tertiary-fixed-dim/5 rounded-full blur-2xl pointer-events-none -z-10"></div>
+<!-- Telemetry Status Bar -->
+<div class="w-full flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-low/80 backdrop-blur-xl p-space-sm rounded-xl mb-space-2xl shadow-xl">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-space-2xs rounded-full bg-surface-container-high text-primary font-label-badge text-label-badge tracking-wider shadow-inner">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+          SPM 2025 SPRINT • SEASON 04
+        </span>
+<span class="hidden sm:inline-block font-label-code text-label-code text-on-surface-variant">
+          SESSION ID: <span class="text-primary font-bold">ARC-88219</span>
+</span>
+</div>
+<div class="flex items-center gap-space-md font-label-numeric text-label-numeric">
+<div class="flex items-center gap-space-2xs text-secondary">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="">BONUS 2.5X XP</span>
+</div>
+<div class="flex items-center gap-space-2xs text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+<span id="speedrun-countdown" class="">07:06 RESET</span>
+</div>
+</div>
+</div>
+<!-- Main Hero Matrix: Asymmetric 12-Column Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Hero Left: Tactical Callout & Start Terminal (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Arcade Badge -->
+<div class="inline-flex items-center self-start gap-space-xs px-space-md py-space-2xs rounded-full bg-primary-container/15 text-primary-fixed backdrop-blur-md shadow-[0_0_20px_rgba(0,240,255,0.25)]">
+<span class="material-symbols-outlined text-[16px] text-primary-fixed-dim">joystick</span>
+<span class="font-label-badge text-label-badge tracking-widest uppercase">DAILY SPEEDRUN • 1 ROUND = 5 QUESTIONS</span>
+</div>
+<!-- Typography Explosion -->
+<div class="flex flex-col gap-space-xs">
+<h1 class="font-display-arcade text-display-arcade-mobile lg:text-display-arcade text-primary uppercase tracking-tight leading-none drop-shadow-[0_0_28px_rgba(0,240,255,0.55)]">
+            SPMfication<br>
+<span class="text-secondary drop-shadow-[0_0_28px_rgba(251,191,36,0.5)]">SPM STREAK</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mt-space-xs">
+            Survive the 5-subject gauntlet. Boost your combo multiplier, maintain your daily streak, and conquer the global cadet leaderboard in real time.
+          </p>
+</div>
+<!-- Call-to-Action Deck -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md pt-space-xs">
+<!-- Primary Pulsating Arcade Trigger -->
+<button class="group relative flex items-center justify-center gap-space-sm px-space-xl py-space-md bg-primary-container hover:bg-primary text-on-primary font-headline-sm text-headline-sm rounded-xl shadow-[0_0_35px_rgba(0,240,255,0.65)] hover:shadow-[0_0_50px_rgba(0,240,255,0.9)] transition-all duration-200 active:translate-y-1" id="start-run-btn">
+<span class="material-symbols-outlined text-[28px] group-hover:scale-125 transition-transform" style="font-variation-settings: &quot;FILL&quot; 1;">bolt</span>
+<div class="flex flex-col text-left leading-tight">
+<span class="tracking-wide">START RUN</span>
+<span class="font-label-code text-label-code opacity-90">5 Questions • 10s Timer</span>
+</div>
+<span class="material-symbols-outlined text-[20px] ml-space-xs opacity-75 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<!-- Secondary Actions -->
+<div class="flex items-center gap-space-xs justify-center sm:justify-start">
+<button class="px-space-md py-space-md bg-surface-container-high/80 hover:bg-surface-bright text-on-surface font-headline-sm text-headline-sm rounded-xl transition-all shadow-md hover:shadow-lg flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary-fixed-dim">tune</span>
+<span class="">Practice Mode</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-high/80 text-secondary hover:text-on-surface hover:bg-surface-bright transition-all shadow-md" title="View Room Leaderboard">
+<span class="material-symbols-outlined text-[22px]">leaderboard</span>
+</button>
+</div>
+</div>
+<!-- Cadet Live Pulse Meta -->
+<div class="flex items-center gap-space-md text-on-surface-variant pt-space-xs">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-badge text-label-badge font-bold">AK</div>
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-badge text-label-badge font-bold">MY</div>
+<div class="w-8 h-8 rounded-full bg-surface-bright text-on-surface flex items-center justify-center font-label-badge text-label-badge font-bold">LZ</div>
+</div>
+<span class="font-label-code text-label-code">
+<strong class="text-primary-fixed font-bold">1,429 Cadets</strong> running live trials right now
+          </span>
+</div>
+</div>
+<!-- Hero Right: Daily Streak Engine Reactor (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low/90 backdrop-blur-2xl rounded-xl p-space-lg shadow-2xl relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-40 h-40 bg-secondary/15 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Reactor Header -->
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-wide">Flame Chamber</span>
+</div>
+<span class="font-label-badge text-label-badge text-secondary bg-surface-container-highest px-space-xs py-space-2xs rounded">
+            SYS: DORMANT
+          </span>
+</div>
+<!-- Flame Orb Graphic & Dynamic Counter -->
+<div class="flex flex-col items-center justify-center py-space-md relative text-center">
+<div class="relative w-28 h-28 flex items-center justify-center mb-space-sm">
+<div class="absolute inset-0 rounded-full bg-primary-container/20 blur-xl animate-pulse"></div>
+<div class="w-24 h-24 rounded-full bg-surface-container-highest flex items-center justify-center shadow-[inset_0_0_20px_rgba(0,240,255,0.35)]">
+<span class="material-symbols-outlined text-[52px] text-primary-fixed-dim drop-shadow-[0_0_15px_rgba(0,240,255,0.8)]" style="font-variation-settings: &quot;FILL&quot; 1;">
+                local_fire_department
+              </span>
+</div>
+</div>
+<div class="font-display-arcade text-display-arcade-mobile text-primary tracking-tight">
+            0 <span class="font-headline-md text-headline-md text-on-surface-variant">DAYS</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-space-2xs">
+            Start today's 5-question sprint to ignite your streak!
+          </p>
+</div>
+<!-- 7-Day Cycle Grid -->
+<div class="mt-space-md pt-space-md bg-surface-container/60 rounded-xl p-space-sm">
+<div class="flex items-center justify-between mb-space-xs px-space-xs">
+<span class="font-label-code text-label-code text-on-surface-variant">WEEK CYCLE</span>
+<span class="font-label-code text-label-code text-primary">TARGET: DAY 1</span>
+</div>
+<!-- Weekly Streak Nodes -->
+<div class="grid grid-cols-7 gap-space-2xs text-center">
+<!-- Mon -->
+<div class="flex flex-col items-center gap-space-2xs p-space-2xs rounded-lg bg-primary-container/20 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+<span class="font-label-code text-label-code text-primary font-bold">M</span>
+<span class="w-3 h-3 rounded-full bg-primary animate-ping"></span>
+</div>
+<!-- Tue -->
+<div class="flex flex-col items-center gap-space-2xs p-space-2xs rounded-lg bg-surface-container-high/40">
+<span class="font-label-code text-label-code text-on-surface-variant">T</span>
+<span class="w-3 h-3 rounded-full bg-surface-bright"></span>
+</div>
+<!-- Wed -->
+<div class="flex flex-col items-center gap-space-2xs p-space-2xs rounded-lg bg-surface-container-high/40">
+<span class="font-label-code text-label-code text-on-surface-variant">W</span>
+<span class="w-3 h-3 rounded-full bg-surface-bright"></span>
+</div>
+<!-- Thu -->
+<div class="flex flex-col items-center gap-space-2xs p-space-2xs rounded-lg bg-surface-container-high/40">
+<span class="font-label-code text-label-code text-on-surface-variant">T</span>
+<span class="w-3 h-3 rounded-full bg-surface-bright"></span>
+</div>
+<!-- Fri -->
+<div class="flex flex-col items-center gap-space-2xs p-space-2xs rounded-lg bg-surface-container-high/40">
+<span class="font-label-code text-label-code text-on-surface-variant">F</span>
+<span class="w-3 h-3 rounded-full bg-surface-bright"></span>
+</div>
+<!-- Sat -->
+<div class="flex flex-col items-center gap-space-2xs p-space-2xs rounded-lg bg-surface-container-high/40">
+<span class="font-label-code text-label-code text-on-surface-variant">S</span>
+<span class="w-3 h-3 rounded-full bg-surface-bright"></span>
+</div>
+<!-- Sun -->
+<div class="flex flex-col items-center gap-space-2xs p-space-2xs rounded-lg bg-surface-container-high/40">
+<span class="font-label-code text-label-code text-on-surface-variant">S</span>
+<span class="w-3 h-3 rounded-full bg-surface-bright"></span>
+</div>
+</div>
+</div>
+<!-- Multiplier Meter -->
+<div class="mt-space-md flex items-center justify-between p-space-sm rounded-lg bg-surface-container-highest/60">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">stars</span>
+<span class="font-label-numeric text-label-numeric text-on-surface">Base Multiplier</span>
+</div>
+<span class="font-label-numeric text-label-numeric text-secondary font-bold">1.0X</span>
+</div>
+</div>
+</div>
+<!-- Section Divider / Arcade Neon Wire -->
+<div class="w-full h-px bg-gradient-to-r from-transparent via-primary-container/40 to-transparent my-space-2xl"></div>
+<!-- 5-Subject Gauntlet Showcase -->
+<div class="flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs text-primary font-label-badge text-label-badge uppercase tracking-widest mb-space-2xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            CORE CURRICULUM GAUNTLET
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            The 5-Subject Gauntlet Sequence
+          </h2>
+</div>
+<p class="font-label-code text-label-code text-on-surface-variant">
+          1 Question per subject in rapid sequence • Non-stop clock
+        </p>
+</div>
+<!-- 5 Interactive Glass Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-md">
+<!-- 1. Bahasa Malaysia -->
+<div class="group relative flex flex-col justify-between bg-surface-container-low/90 backdrop-blur-xl p-space-md rounded-xl shadow-xl hover:-translate-y-1 transition-all duration-200">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge px-space-xs py-space-2xs rounded bg-primary-container/20 text-primary-fixed">STAGE 01</span>
+<span class="material-symbols-outlined text-[20px] text-primary">auto_stories</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Bahasa Melayu</h3>
+<p class="font-label-code text-label-code text-on-surface-variant">Peribahasa &amp; Imbuhan</p>
+</div>
+<div class="bg-surface-container-lowest/80 p-space-xs rounded font-body-sm text-body-sm text-on-surface-variant italic">
+              “Bagai aur dengan tebing...”
+            </div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-badge text-label-badge text-primary-fixed-dim">
+<span class="">STREAK BOOST</span>
+<span class="font-label-numeric text-label-numeric font-bold">+1x COMBO</span>
+</div>
+</div>
+<!-- 2. Sejarah -->
+<div class="group relative flex flex-col justify-between bg-surface-container-low/90 backdrop-blur-xl p-space-md rounded-xl shadow-xl hover:-translate-y-1 transition-all duration-200">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge px-space-xs py-space-2xs rounded bg-secondary/20 text-secondary">STAGE 02</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">hourglass_bottom</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Sejarah</h3>
+<p class="font-label-code text-label-code text-on-surface-variant">Key Dates &amp; Tokoh</p>
+</div>
+<div class="bg-surface-container-lowest/80 p-space-xs rounded font-body-sm text-body-sm text-on-surface-variant italic">
+              “1511 • Kejatuhan Melaka”
+            </div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-badge text-label-badge text-secondary">
+<span class="">STREAK BOOST</span>
+<span class="font-label-numeric text-label-numeric font-bold">+1x COMBO</span>
+</div>
+</div>
+<!-- 3. Matematik -->
+<div class="group relative flex flex-col justify-between bg-surface-container-low/90 backdrop-blur-xl p-space-md rounded-xl shadow-xl hover:-translate-y-1 transition-all duration-200">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge px-space-xs py-space-2xs rounded bg-surface-tint/20 text-surface-tint">STAGE 03</span>
+<span class="material-symbols-outlined text-[20px] text-surface-tint">calculate</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-surface-tint transition-colors">Matematik</h3>
+<p class="font-label-code text-label-code text-on-surface-variant">Sifir &amp; Pecahan Linear</p>
+</div>
+<div class="bg-surface-container-lowest/80 p-space-xs rounded font-body-sm text-body-sm text-on-surface-variant italic font-label-numeric">
+              “7 × 8 = 56”
+            </div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-badge text-label-badge text-surface-tint">
+<span class="">STREAK BOOST</span>
+<span class="font-label-numeric text-label-numeric font-bold">+1x COMBO</span>
+</div>
+</div>
+<!-- 4. Geografi -->
+<div class="group relative flex flex-col justify-between bg-surface-container-low/90 backdrop-blur-xl p-space-md rounded-xl shadow-xl hover:-translate-y-1 transition-all duration-200">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge px-space-xs py-space-2xs rounded bg-primary-container/20 text-primary-fixed">STAGE 04</span>
+<span class="material-symbols-outlined text-[20px] text-primary">explore</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Geografi</h3>
+<p class="font-label-code text-label-code text-on-surface-variant">Negeri &amp; Bentuk Muka</p>
+</div>
+<div class="bg-surface-container-lowest/80 p-space-xs rounded font-body-sm text-body-sm text-on-surface-variant italic">
+              “Ibu negeri Perak: Ipoh”
+            </div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-badge text-label-badge text-primary-fixed">
+<span class="">STREAK BOOST</span>
+<span class="font-label-numeric text-label-numeric font-bold">+1x COMBO</span>
+</div>
+</div>
+<!-- 5. Sains -->
+<div class="group relative flex flex-col justify-between bg-surface-container-low/90 backdrop-blur-xl p-space-md rounded-xl shadow-xl hover:-translate-y-1 transition-all duration-200">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge px-space-xs py-space-2xs rounded bg-secondary-fixed/20 text-secondary">STAGE 05</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">science</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Sains SPM</h3>
+<p class="font-label-code text-label-code text-on-surface-variant">Jadual Berkala &amp; Daya</p>
+</div>
+<div class="bg-surface-container-lowest/80 p-space-xs rounded font-body-sm text-body-sm text-on-surface-variant italic">
+              “Simbol Hidrogen: H”
+            </div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-badge text-label-badge text-secondary">
+<span class="">FINAL STAGE</span>
+<span class="font-label-numeric text-label-numeric font-bold">+2x CRIT</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Divider -->
+<div class="w-full h-px bg-gradient-to-r from-transparent via-primary-container/20 to-transparent my-space-2xl"></div>
+<!-- Bottom Matrix: Mechanics & Live Leaderboard -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Mechanics Strip (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs text-secondary font-label-badge text-label-badge uppercase tracking-widest">
+<span class="material-symbols-outlined text-[16px]">military_tech</span>
+          ARCADE PROTOCOLS
+        </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Engine Mechanics</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-low/80 backdrop-blur-md p-space-md rounded-xl shadow-lg flex flex-col gap-space-xs">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary mb-space-2xs">
+<span class="material-symbols-outlined text-[24px]">speed</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">10s Timers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Instant adrenaline rush. Train instinctive recall with zero time to second-guess.
+            </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low/80 backdrop-blur-md p-space-md rounded-xl shadow-lg flex flex-col gap-space-xs">
+<div class="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary mb-space-2xs">
+<span class="material-symbols-outlined text-[24px]">local_fire_department</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Multipliers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Stack +1x, +2x, and +3x score boosts for consecutive flawless hits across subjects.
+            </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low/80 backdrop-blur-md p-space-md rounded-xl shadow-lg flex flex-col gap-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-fixed mb-space-2xs">
+<span class="material-symbols-outlined text-[24px]">trophy</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Live Rooms</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Compete against classmates and school cohorts in real-time daily rankings.
+            </p>
+</div>
+</div>
+<!-- Tactical Banner -->
+<div class="bg-surface-container-high/60 rounded-xl p-space-md flex items-center justify-between gap-space-sm mt-space-xs shadow-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">workspace_premium</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Unlock Cadet Badges</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Reach 7 Days Streak to gain the plasma badge cosmetic</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+<!-- Live Leaderboard Snippet (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low/90 backdrop-blur-2xl rounded-xl p-space-lg shadow-2xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">emoji_events</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-wide">Daily Honor Roll</h3>
+</div>
+<span class="font-label-badge text-label-badge text-primary-fixed-dim bg-surface-container-highest px-space-xs py-space-2xs rounded">
+            LIVE SYNC
+          </span>
+</div>
+<!-- Rank List -->
+<div class="flex flex-col gap-space-xs">
+<!-- Rank 1 -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-highest/80 shadow-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold w-6 text-center">1</span>
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-headline-sm font-bold shadow-[0_0_12px_rgba(227,170,0,0.5)]">
+                DR
+              </div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Danial Rayyan</span>
+<span class="font-label-code text-label-code text-on-surface-variant">SMK Seri Bintang</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-numeric text-label-numeric text-primary font-bold">4,950 PTS</span>
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                14 DAYS
+              </span>
+</div>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-high/60 shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="font-headline-sm text-headline-sm text-primary font-bold w-6 text-center">2</span>
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-headline-sm font-bold shadow-[0_0_12px_rgba(0,240,255,0.4)]">
+                NM
+              </div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Nur Maisarah</span>
+<span class="font-label-code text-label-code text-on-surface-variant">Kolej Yayasan Saad</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-numeric text-label-numeric text-primary font-bold">4,720 PTS</span>
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                9 DAYS
+              </span>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-high/60 shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface-variant font-bold w-6 text-center">3</span>
+<div class="w-10 h-10 rounded-full bg-surface-bright text-on-surface flex items-center justify-center font-headline-sm font-bold">
+                JT
+              </div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Justin Tan</span>
+<span class="font-label-code text-label-code text-on-surface-variant">SMJK Chung Ling</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-numeric text-label-numeric text-primary font-bold">4,580 PTS</span>
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                7 DAYS
+              </span>
+</div>
+</div>
+</div>
+<button class="w-full py-space-sm bg-surface-container-highest hover:bg-surface-bright text-primary font-label-badge text-label-badge uppercase tracking-wider rounded-lg transition-colors text-center mt-space-2xs">
+          VIEW FULL REGIONAL LEADERBOARD
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple countdown simulator for speedrun reset
+  (function() {
+    let remaining = 600;
+    const el = document.getElementById('speedrun-countdown');
+    if (!el) return;
+
+    setInterval(() => {
+      if (remaining > 0) {
+        remaining--;
+        const mins = String(Math.floor(remaining / 60)).padStart(2, '0');
+        const secs = String(remaining % 60).padStart(2, '0');
+        el.innerText = `${mins}:${secs} RESET`;
+      }
+    }, 1000);
+
+    // Audio click effect simulation
+    const startBtn = document.getElementById('start-run-btn');
+    if (startBtn) {
+      startBtn.addEventListener('click', () => {
+        startBtn.classList.add('scale-95');
+        setTimeout(() => startBtn.classList.remove('scale-95'), 150);
+      });
+    }
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest/90 mt-space-3xl py-space-xl"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary">CAMPUR</span><span class="font-body-sm text-body-sm text-on-surface-variant">SPM Arcade Battleground © 2026</span></div><div class="flex items-center gap-space-lg"><span class="font-label-code text-label-code text-on-surface-variant">SYSTEM: PROTOCOL ACTIVE</span><span class="font-label-code text-label-code text-secondary-fixed-dim">EXP BOOST: 1.0X</span></div></div></footer>
+
+</body></html>

@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa;
+  }
+
+  body {
+    overscroll-behavior: none;
+  }
+
+  button,
+  input {
+    border-radius: 0;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  .sheet {
+    @apply bg-surface-container-lowest border border-primary;
+  }
+
+  .sheet-strong {
+    @apply bg-surface-container-lowest border-2 border-primary;
+  }
+
+  .mono-label {
+    @apply font-label-code text-label-code uppercase tracking-widest;
+  }
+
+  .mono-badge {
+    @apply font-label-badge text-label-badge uppercase tracking-widest px-space-xs py-space-2xs border border-primary;
+  }
+
+  .hard-shadow {
+    box-shadow: 3px 3px 0 0 #000000;
+  }
+
+  .architectural-panel {
+    @apply bg-surface-container-lowest border border-primary relative;
+  }
+
+  .architectural-panel::before,
+  .architectural-panel::after {
+    content: '[+]';
+    position: absolute;
+    top: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #76777b;
+    pointer-events: none;
+  }
+
+  .architectural-panel::before {
+    left: 0.25rem;
+  }
+
+  .architectural-panel::after {
+    right: 0.25rem;
+  }
+}
+
+.blueprint-grid,
+.arcade-grid-bg {
+  background-color: #f8f9fa;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
