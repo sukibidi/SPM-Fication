@@ -4,7 +4,7 @@
   "version": "2.4.0",
   "type": "module",
   "scripts": {
-    "postinstall": "chmod +x node_modules/.bin/vite || true",
+    "postinstall": "node -e \"try { require('fs').chmodSync('node_modules/.bin/vite', 0o755) } catch(e) {}\"",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",

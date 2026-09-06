@@ -8,6 +8,7 @@ import VictorySummary from './screens/VictorySummary';
 import AuthScreen from './screens/AuthScreen';
 import SubjectVault from './screens/SubjectVault';
 import LeaderboardScreen from './screens/LeaderboardScreen';
+import CadetProfile from './screens/CadetProfile';
 import { SUBJECT_MAP } from './data/subjects';
 import { getInitials, validatePlayerName } from './utils/playerName';
 
@@ -40,6 +41,8 @@ export default function App() {
       ? 'Subject Vault'
       : view === 'leaderboard'
       ? 'Leaderboard'
+      : view === 'cadetProfile'
+      ? 'Cadet Profile'
       : HEADER_STATES[game.screen].title,
   };
 
@@ -160,6 +163,14 @@ export default function App() {
             />
           )}
 
+          {!authOpen && game.screen === 'landing' && view === 'cadetProfile' && (
+            <CadetProfile
+              cadet={cadet}
+              guest={guest}
+              onNavigate={setView}
+            />
+          )}
+
           {!authOpen && game.screen === 'playing' && (
             <BattleArena
               questions={game.questions}
@@ -226,6 +237,7 @@ function Header({ title, showBack, soundEnabled, cadet, guest, onLogin, onBack, 
             <NavButton active={view === 'landing'} onClick={() => onNavigate('landing')}>Home</NavButton>
             <NavButton active={view === 'subjectVault'} onClick={() => onNavigate('subjectVault')}>Subject Vault</NavButton>
             <NavButton active={view === 'leaderboard'} onClick={() => onNavigate('leaderboard')}>Leaderboard</NavButton>
+            <NavButton active={view === 'cadetProfile'} onClick={() => onNavigate('cadetProfile')}>Cadet Profile</NavButton>
           </nav>
           <button
             className="hidden md:inline-flex h-9 px-space-sm border border-primary bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary font-label-badge text-label-badge uppercase tracking-widest font-bold transition-colors"
@@ -247,13 +259,20 @@ function Header({ title, showBack, soundEnabled, cadet, guest, onLogin, onBack, 
             </span>
           </button>
           <div className="flex items-center gap-space-xs">
-            <div className="hidden sm:flex flex-col items-end leading-tight">
-              <span className="font-label-badge text-label-badge text-primary font-bold tracking-wider uppercase">{currentUser.name}</span>
-              <span className="font-label-badge text-[9px] text-secondary uppercase">{currentUser.school}</span>
-            </div>
-            <div className="w-8 h-8 border border-primary bg-primary text-on-primary flex items-center justify-center font-label-badge text-label-badge font-bold">
-              {currentUser.initials}
-            </div>
+            <button
+              type="button"
+              onClick={() => onNavigate('cadetProfile')}
+              className="flex items-center gap-space-xs"
+              aria-label="Open cadet profile"
+            >
+              <div className="hidden sm:flex flex-col items-end leading-tight">
+                <span className="font-label-badge text-label-badge text-primary font-bold tracking-wider uppercase">{currentUser.name}</span>
+                <span className="font-label-badge text-[9px] text-secondary uppercase">{currentUser.school}</span>
+              </div>
+              <div className="w-8 h-8 border border-primary bg-primary text-on-primary flex items-center justify-center font-label-badge text-label-badge font-bold">
+                {currentUser.initials}
+              </div>
+            </button>
           </div>
           {!cadet && (
             <button
