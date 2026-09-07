@@ -117,8 +117,39 @@ function RadarChart() {
   );
 }
 
-function CadetProfile({ cadet, guest, onNavigate }) {
-  const user = cadet || guest || { name: 'Not Set', initials: '--', school: 'KSSM Student Unit' };
+function CadetProfile({ cadet, guest, onNavigate, onLogin }) {
+  const isGuest = !cadet;
+
+  if (isGuest) {
+    return (
+      <div className="w-full min-h-[calc(100vh-3.5rem)] flex flex-col bg-transparent text-on-surface">
+        <main className="flex-1 flex items-center justify-center px-margin-mobile">
+          <div className="max-w-5xl mx-auto w-full">
+            <section className="bg-surface-container-lowest border-2 border-primary p-space-lg flex flex-col items-center text-center gap-space-md">
+              <span className="material-symbols-outlined text-primary text-[56px]">person_apron</span>
+              <h1 className="font-headline-lg text-headline-lg uppercase text-primary tracking-tight font-bold">
+                Student PROFILE //
+              </h1>
+              <p className="font-body-md text-body-md text-on-surface-variant max-w-lg">
+                Data is not available. Please sign in to record your status.
+              </p>
+              <button
+                type="button"
+                onClick={onLogin}
+                className="tactile-btn border-2 border-primary bg-primary text-on-primary font-label-code text-label-code px-space-md py-space-xs font-bold hover:bg-surface hover:text-primary uppercase flex items-center gap-2"
+              >
+                <span className="material-symbols-outlined text-[16px]">login</span>
+                <span>[SIGN IN]</span>
+              </button>
+            </section>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  const user = cadet;
 
   return (
     <div className="w-full min-h-[calc(100vh-3.5rem)] flex flex-col bg-transparent text-on-surface">

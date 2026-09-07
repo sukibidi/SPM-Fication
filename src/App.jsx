@@ -178,6 +178,7 @@ export default function App() {
               cadet={cadet}
               guest={guest}
               onNavigate={setView}
+              onLogin={() => setAuthOpen(true)}
             />
           )}
 
