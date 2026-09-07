@@ -123,8 +123,9 @@ function CadetProfile({ cadet, guest, onNavigate }) {
   return (
     <div className="w-full min-h-[calc(100vh-3.5rem)] flex flex-col bg-transparent text-on-surface">
       <main className="flex-1">
-        {/* SECTION 1: TOP DOSSIER HEADER BANNER */}
-        <section className="w-full bg-surface-container-lowest border-b-2 border-primary px-margin-mobile lg:px-margin-desktop py-space-lg">
+        <div className="max-w-5xl mx-auto">
+          {/* SECTION 1: TOP DOSSIER HEADER BANNER */}
+          <section className="bg-surface-container-lowest border-b-2 border-primary px-margin-mobile lg:px-margin-desktop py-space-lg">
           <div className="flex flex-col gap-space-xs">
             <div className="flex flex-wrap items-center justify-between gap-2 font-label-code text-label-code text-on-surface-variant border-b border-primary/20 pb-space-xs">
               <div className="flex flex-wrap items-center gap-2 text-primary font-bold">
@@ -169,7 +170,7 @@ function CadetProfile({ cadet, guest, onNavigate }) {
         </section>
 
         {/* SECTION 2: TOP GRID (3-COLUMN SPLIT) */}
-        <section className="w-full px-margin-mobile lg:px-margin-desktop py-space-lg border-b-2 border-primary bg-surface">
+        <section className="bg-surface border-b-2 border-primary py-space-lg">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
             {/* COL 1: Personnel Identity & Badge */}
             <div className="lg:col-span-4 bg-surface-container-lowest border-2 border-primary flex flex-col justify-between p-space-md relative">
@@ -363,7 +364,7 @@ function CadetProfile({ cadet, guest, onNavigate }) {
         </section>
 
         {/* SECTION 3: STREAK CALENDAR & CALIBRATION CHAMBER */}
-        <section className="w-full px-margin-mobile lg:px-margin-desktop py-space-lg border-b-2 border-primary bg-surface-container-lowest">
+        <section className="bg-surface-container-lowest border-b-2 border-primary py-space-lg">
           <div className="flex flex-col gap-space-md">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm border-b-2 border-primary pb-space-sm">
               <div>
@@ -455,7 +456,7 @@ function CadetProfile({ cadet, guest, onNavigate }) {
         </section>
 
         {/* SECTION 4: ARMORY & ACHIEVEMENTS */}
-        <section className="w-full px-margin-mobile lg:px-margin-desktop py-space-lg border-b-2 border-primary bg-surface">
+        <section className="bg-surface border-b-2 border-primary py-space-lg">
           <div className="flex flex-col gap-space-md">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-primary pb-space-sm">
               <div>
@@ -516,7 +517,7 @@ function CadetProfile({ cadet, guest, onNavigate }) {
         </section>
 
         {/* SECTION 5: COMBAT HISTORY & RECENT TRIAL LOGS */}
-        <section className="w-full px-margin-mobile lg:px-margin-desktop py-space-lg border-b-2 border-primary bg-surface-container-lowest">
+        <section className="bg-surface-container-lowest border-b-2 border-primary py-space-lg">
           <div className="flex flex-col gap-space-md">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-primary pb-space-sm">
               <div>
@@ -598,7 +599,7 @@ function CadetProfile({ cadet, guest, onNavigate }) {
         </section>
 
         {/* TECHNICAL FOOTER STATUS */}
-        <section className="w-full bg-surface-container-lowest border-t-2 border-primary py-space-md px-margin-mobile lg:px-margin-desktop font-label-code text-label-code">
+        <section className="bg-surface-container-lowest border-t-2 border-primary py-space-md">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 border-b border-primary/20 pb-space-sm">
             <div className="flex items-center gap-3">
               <span className="bg-primary text-on-primary px-1.5 py-0.5 font-bold">[CADET ID: HARITH-7749]</span>
@@ -633,7 +634,8 @@ function CadetProfile({ cadet, guest, onNavigate }) {
             </div>
           </div>
         </section>
-      </main>
+          </div>
+       </main>
       <Footer />
     </div>
   );
