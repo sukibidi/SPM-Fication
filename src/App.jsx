@@ -9,6 +9,7 @@ import AuthScreen from './screens/AuthScreen';
 import SubjectVault from './screens/SubjectVault';
 import LeaderboardScreen from './screens/LeaderboardScreen';
 import CadetProfile from './screens/CadetProfile';
+import PageSkeleton from './components/Skeleton';
 import { SUBJECT_MAP } from './data/subjects';
 import { getInitials, validatePlayerName } from './utils/playerName';
 
@@ -23,6 +24,7 @@ export default function App() {
   const audio = useAudioSynthesizer();
   const [authOpen, setAuthOpen] = useState(false);
   const [view, setView] = useState('landing');
+  const [viewLoading, setViewLoading] = useState(false);
   const [cadet, setCadet] = useState(null);
   const [guest, setGuest] = useState({ name: 'Guest', initials: 'G', school: 'Guest Session' });
 
@@ -72,7 +74,9 @@ export default function App() {
       if (game.screen !== 'landing') {
         game.restart();
       }
+      setViewLoading(true);
       setView(nextView);
+      setTimeout(() => setViewLoading(false), 420);
     },
     [game]
   );
@@ -133,7 +137,13 @@ export default function App() {
         <main className="flex flex-col relative w-full flex-1">
           {authOpen && <AuthScreen onAuthenticated={handleAuthenticated} />}
 
-          {!authOpen && game.screen === 'landing' && view === 'landing' && (
+          {!authOpen && viewLoading && (
+            <div className="flex-1">
+              <PageSkeleton view={view} gameScreen={game.screen} />
+            </div>
+          )}
+
+          {!authOpen && !viewLoading && game.screen === 'landing' && view === 'landing' && (
             <LandingScreen
               onStartRun={handleStartRun}
               cadet={cadet}
@@ -145,7 +155,7 @@ export default function App() {
             />
           )}
 
-          {!authOpen && game.screen === 'landing' && view === 'subjectVault' && (
+          {!authOpen && !viewLoading && game.screen === 'landing' && view === 'subjectVault' && (
             <SubjectVault
               defaultLocale={game.locale}
               canStart={canStartAsCurrentUser}
@@ -154,7 +164,7 @@ export default function App() {
             />
           )}
 
-          {!authOpen && game.screen === 'landing' && view === 'leaderboard' && (
+          {!authOpen && !viewLoading && game.screen === 'landing' && view === 'leaderboard' && (
             <LeaderboardScreen
               entries={game.leaderboard}
               cadet={cadet}
@@ -163,7 +173,7 @@ export default function App() {
             />
           )}
 
-          {!authOpen && game.screen === 'landing' && view === 'cadetProfile' && (
+          {!authOpen && !viewLoading && game.screen === 'landing' && view === 'cadetProfile' && (
             <CadetProfile
               cadet={cadet}
               guest={guest}
@@ -171,7 +181,7 @@ export default function App() {
             />
           )}
 
-          {!authOpen && game.screen === 'playing' && (
+          {!authOpen && !viewLoading && game.screen === 'playing' && (
             <BattleArena
               questions={game.questions}
               currentIndex={game.currentIndex}
@@ -192,7 +202,7 @@ export default function App() {
             />
           )}
 
-          {!authOpen && game.screen === 'ended' && (
+          {!authOpen && !viewLoading && game.screen === 'ended' && (
             <VictorySummary
               score={game.score}
               streak={game.maxStreak}
